@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+ <p>{{ patient.id }}</p>
+ <p>{{ patient.name }}</p>
+ <p>{{ patient.age }}</p>
+ <p>{{ patient.gender }}</p>
+ <p>{{ patient.dateOfDiagnosis|date('Y-m-d H:m:i') }}</p>
+{% endblock %}

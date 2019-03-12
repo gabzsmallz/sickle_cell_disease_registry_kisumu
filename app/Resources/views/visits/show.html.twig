@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Visit
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ visit.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Dateofvisit</th>
+                            <td>{% if visit.dateOfVisit %}{{ visit.dateOfVisit|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <th>Typeofvisit</th>
+                            <td>{{ visit.typeOfVisit }}</td>
+                        </tr>
+                        <tr>
+                            <th>Patientid</th>
+                            <td>{{ visit.patientId }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <ul>
+                    <li>
+                        <a href="{{ path('visits_index') }}">Back to the list</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('visits_edit', { 'id': visit.id }) }}">Edit</a>
+                    </li>
+                    <li>
+                        {{ form_start(delete_form) }}
+                            <input type="submit" value="Delete">
+                        {{ form_end(delete_form) }}
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
