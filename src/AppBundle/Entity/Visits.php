@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Visits
@@ -43,7 +44,15 @@ class Visits
      *  @ORM\JoinColumn(name="patient_id", referencedColumnName="id" )
     */
     private $patientId;
+    /**
+    *   @ORM\OneToMany(targetEntity="Triage", mappedBy="visitId")
+    */
+    protected $triages;
 
+    public function __construct()
+    {
+        $this->triages = new ArrayCollection();
+    }
 
     /**
      * Get id

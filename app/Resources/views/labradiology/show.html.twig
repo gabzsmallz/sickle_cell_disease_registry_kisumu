@@ -1,0 +1,143 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Labradiology
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th>#</th>
+                                        <td>{{ labRadiology.id }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Haemoglobin</th>
+                                        <td>{{ labRadiology.haemoglobin }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Recticcount</th>
+                                        <td>{{ labRadiology.recticCount }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Meancorpuscularvolume</th>
+                                        <td>{{ labRadiology.meanCorpuscularVolume }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Haematocrit</th>
+                                        <td>{{ labRadiology.haematocrit }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Plateletcount</th>
+                                        <td>{{ labRadiology.plateletCount }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Creatinine</th>
+                                        <td>{{ labRadiology.creatinine }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Bilirubin</th>
+                                        <td>{{ labRadiology.bilirubin }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Transcranialdoppler</th>
+                                        <td>{{ labRadiology.transcranialDoppler }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Echocardiogram</th>
+                                        <td>{{ labRadiology.echocardiogram }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Echocomments</th>
+                                        <td>{{ labRadiology.echoComments }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Othertest1</th>
+                                        <td>{{ labRadiology.otherTest1 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Othertest1comments</th>
+                                        <td>{{ labRadiology.otherTest1Comments }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Othertest2</th>
+                                        <td>{{ labRadiology.otherTest2 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Othertest2comments</th>
+                                        <td>{{ labRadiology.otherTest2Comments }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Othertest3</th>
+                                        <td>{{ labRadiology.otherTest3 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Othertest3comments</th>
+                                        <td>{{ labRadiology.otherTest3Comments }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Haemoglobincomments</th>
+                                        <td>{{ labRadiology.haemoglobinComments }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Recticcountcomments</th>
+                                        <td>{{ labRadiology.recticCountComments }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Meancorpuscularvolumecomments</th>
+                                        <td>{{ labRadiology.meanCorpuscularVolumeComments }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Haematocritcomments</th>
+                                        <td>{{ labRadiology.haematocritComments }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Plateletcountcomments</th>
+                                        <td>{{ labRadiology.plateletCountComments }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Creatininecomments</th>
+                                        <td>{{ labRadiology.creatinineComments }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Bilirubincommets</th>
+                                        <td>{{ labRadiology.bilirubinCommets }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Transcranialdopplercomments</th>
+                                        <td>{{ labRadiology.transcranialDopplerComments }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Triageid</th>
+                                        <td>{{ labRadiology.triageId }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <ul>
+                                <li>
+                                    <a href="{{ path('labradiology_index') }}">Back to the list</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('labradiology_edit', { 'id': labRadiology.id }) }}">Edit</a>
+                                </li>
+                                <li>
+                                    {{ form_start(delete_form) }}
+                                        <input type="submit" value="Delete">
+                                    {{ form_end(delete_form) }}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

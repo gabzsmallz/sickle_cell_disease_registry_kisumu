@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Cares list
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            <table class="table table-striped table-bordered table-hover" id="dataTables">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Patient</th>
+                                        <th>Treatment</th>
+                                        <th>Treament start date</th>
+                                        <th>Treament end date</th>
+                                        <th>Treatment comments</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for care in cares %}
+                                    <tr>
+                                        <td><a href="{{ path('care_show', { 'id': care.id }) }}">{{ care.id }}</a></td>
+                                        <td>{{ care.patientId }}</td>
+                                        <td>{{ care.treatment }}</td>
+                                        <td>{% if care.treamentStartDate %}{{ care.treamentStartDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                        <td>{% if care.treamentEndDate %}{{ care.treamentEndDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                        <td>{{ care.treatmentComments }}</td>
+                                        <td>
+                                            <ul>
+                                                <li>
+                                                    <a href="{{ path('care_show', { 'id': care.id }) }}">show</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ path('care_edit', { 'id': care.id }) }}">edit</a>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+                            <ul>
+                                <li>
+                                    <a href="{{ path('care_new') }}">Create a new care</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+    $(document).ready(function() {
+        $('#dataTables').DataTable({
+            responsive: true
+        });
+    });
+    </script>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Meds
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th>#</th>
+                                        <td>{{ med.id }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Careid</th>
+                                        <td>{{ med.careId }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Medsname</th>
+                                        <td>{{ med.medsName }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Medsdose</th>
+                                        <td>{{ med.medsDose }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Medscomments</th>
+                                        <td>{{ med.medsComments }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Medsdailydose</th>
+                                        <td>{{ med.medsDailyDose }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <ul>
+                                <li>
+                                    <a href="{{ path('meds_index') }}">Back to the list</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('meds_edit', { 'id': med.id }) }}">Edit</a>
+                                </li>
+                                <li>
+                                    {{ form_start(delete_form) }}
+                                        <input type="submit" value="Delete">
+                                    {{ form_end(delete_form) }}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Episodes list
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+
+                    <table class="table table-striped table-bordered table-hover" id="dataTables">
+
+
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Episodetype1</th>
+                                <th>Episodetype1date</th>
+                                <th>Episodetype1comments</th>
+                                <th>Episodetype2</th>
+                                <th>Episodetype2date</th>
+                                <th>Episodetype2comments</th>
+                                <th>Episodetype3</th>
+                                <th>Episodetype3date</th>
+                                <th>Episodetype3comments</th>
+                                <th>Episodetype4</th>
+                                <th>Episodetype4date</th>
+                                <th>Episodetype4comments</th>
+                                <th>Episodetype5</th>
+                                <th>Episodetype5date</th>
+                                <th>Episodetype5comments</th>
+                                <th>Episodetype6</th>
+                                <th>Episodetype6date</th>
+                                <th>Episodetype6comments</th>
+                                <th>Episodetype7</th>
+                                <th>Episodetype7date</th>
+                                <th>Episodetype7comments</th>
+                                <th>Episodetype8</th>
+                                <th>Episodetype8date</th>
+                                <th>Episodetype8comments</th>
+                                <th>Episodetype9</th>
+                                <th>Episodetype9date</th>
+                                <th>Episodetype9comments</th>
+                                <th>Patientid</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for episode in episodes %}
+                            <tr>
+                                <td><a href="{{ path('episodes_show', { 'id': episode.id }) }}">{{ episode.id }}</a></td>
+                                <td>{{ episode.episodeType1 }}</td>
+                                <td>{% if episode.episodeType1Date %}{{ episode.episodeType1Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>{{ episode.episodeType1Comments }}</td>
+                                <td>{{ episode.episodeType2 }}</td>
+                                <td>{% if episode.episodeType2Date %}{{ episode.episodeType2Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>{{ episode.episodeType2Comments }}</td>
+                                <td>{{ episode.episodeType3 }}</td>
+                                <td>{% if episode.episodeType3Date %}{{ episode.episodeType3Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>{{ episode.episodeType3Comments }}</td>
+                                <td>{{ episode.episodeType4 }}</td>
+                                <td>{% if episode.episodeType4Date %}{{ episode.episodeType4Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>{{ episode.episodeType4Comments }}</td>
+                                <td>{{ episode.episodeType5 }}</td>
+                                <td>{% if episode.episodeType5Date %}{{ episode.episodeType5Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>{{ episode.episodeType5Comments }}</td>
+                                <td>{{ episode.episodeType6 }}</td>
+                                <td>{% if episode.episodeType6Date %}{{ episode.episodeType6Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>{{ episode.episodeType6Comments }}</td>
+                                <td>{{ episode.episodeType7 }}</td>
+                                <td>{% if episode.episodeType7Date %}{{ episode.episodeType7Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>{{ episode.episodeType7Comments }}</td>
+                                <td>{{ episode.episodeType8 }}</td>
+                                <td>{% if episode.episodeType8Date %}{{ episode.episodeType8Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>{{ episode.episodeType8Comments }}</td>
+                                <td>{{ episode.episodeType9 }}</td>
+                                <td>{% if episode.episodeType9Date %}{{ episode.episodeType9Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>{{ episode.episodeType9Comments }}</td>
+                                <td>{{ episode.patientId }}</td>
+                                <td>
+                                    <ul>
+                                        <li>
+                                            <a href="{{ path('episodes_show', { 'id': episode.id }) }}">show</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('episodes_edit', { 'id': episode.id }) }}">edit</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <ul>
+                        <li>
+                            <a href="{{ path('episodes_new') }}">Create a new episode</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+    $(document).ready(function() {
+        $('#dataTables').DataTable({
+            responsive: true
+        });
+    });
+    </script>
+{% endblock %}

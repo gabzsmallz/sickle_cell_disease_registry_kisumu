@@ -1,0 +1,155 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Episode
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th>Id</th>
+                                        <td>{{ episode.id }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Episodetype1</th>
+                                        <td>{{ episode.episodeType1 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Episodetype1date</th>
+                                        <td>{% if episode.episodeType1Date %}{{ episode.episodeType1Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Episodetype1comments</th>
+                                        <td>{{ episode.episodeType1Comments }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Episodetype2</th>
+                                        <td>{{ episode.episodeType2 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Episodetype2date</th>
+                                        <td>{% if episode.episodeType2Date %}{{ episode.episodeType2Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Episodetype2comments</th>
+                                        <td>{{ episode.episodeType2Comments }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Episodetype3</th>
+                                        <td>{{ episode.episodeType3 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Episodetype3date</th>
+                                        <td>{% if episode.episodeType3Date %}{{ episode.episodeType3Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Episodetype3comments</th>
+                                        <td>{{ episode.episodeType3Comments }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Episodetype4</th>
+                                        <td>{{ episode.episodeType4 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Episodetype4date</th>
+                                        <td>{% if episode.episodeType4Date %}{{ episode.episodeType4Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Episodetype4comments</th>
+                                        <td>{{ episode.episodeType4Comments }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Episodetype5</th>
+                                        <td>{{ episode.episodeType5 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Episodetype5date</th>
+                                        <td>{% if episode.episodeType5Date %}{{ episode.episodeType5Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Episodetype5comments</th>
+                                        <td>{{ episode.episodeType5Comments }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Episodetype6</th>
+                                        <td>{{ episode.episodeType6 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Episodetype6date</th>
+                                        <td>{% if episode.episodeType6Date %}{{ episode.episodeType6Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Episodetype6comments</th>
+                                        <td>{{ episode.episodeType6Comments }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Episodetype7</th>
+                                        <td>{{ episode.episodeType7 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Episodetype7date</th>
+                                        <td>{% if episode.episodeType7Date %}{{ episode.episodeType7Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Episodetype7comments</th>
+                                        <td>{{ episode.episodeType7Comments }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Episodetype8</th>
+                                        <td>{{ episode.episodeType8 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Episodetype8date</th>
+                                        <td>{% if episode.episodeType8Date %}{{ episode.episodeType8Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Episodetype8comments</th>
+                                        <td>{{ episode.episodeType8Comments }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Episodetype9</th>
+                                        <td>{{ episode.episodeType9 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Episodetype9date</th>
+                                        <td>{% if episode.episodeType9Date %}{{ episode.episodeType9Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Episodetype9comments</th>
+                                        <td>{{ episode.episodeType9Comments }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Patientid</th>
+                                        <td>{{ episode.patientId }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <ul>
+                                <li>
+                                    <a href="{{ path('episodes_index') }}">Back to the list</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('episodes_edit', { 'id': episode.id }) }}">Edit</a>
+                                </li>
+                                <li>
+                                    {{ form_start(delete_form) }}
+                                        <input type="submit" value="Delete">
+                                    {{ form_end(delete_form) }}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

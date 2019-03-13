@@ -1,0 +1,130 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Condition
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th>Id</th>
+                                        <td>{{ condition.id }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Conditiontype1</th>
+                                        <td>{{ condition.conditionType1 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Conditiontype1date</th>
+                                        <td>{% if condition.conditionType1Date %}{{ condition.conditionType1Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Conditiontype1comments</th>
+                                        <td>{{ condition.conditionType1Comments }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Conditiontype2</th>
+                                        <td>{{ condition.conditionType2 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Conditiontype2date</th>
+                                        <td>{% if condition.conditionType2Date %}{{ condition.conditionType2Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Conditiontype2comments</th>
+                                        <td>{{ condition.conditionType2Comments }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Conditiontype3</th>
+                                        <td>{{ condition.conditionType3 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Conditiontype3date</th>
+                                        <td>{% if condition.conditionType3Date %}{{ condition.conditionType3Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Conditiontype3comments</th>
+                                        <td>{{ condition.conditionType3Comments }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Conditiontype4</th>
+                                        <td>{{ condition.conditionType4 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Conditiontype4date</th>
+                                        <td>{% if condition.conditionType4Date %}{{ condition.conditionType4Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Conditiontype4comments</th>
+                                        <td>{{ condition.conditionType4Comments }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Conditiontype5</th>
+                                        <td>{{ condition.conditionType5 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Conditiontype5date</th>
+                                        <td>{% if condition.conditionType5Date %}{{ condition.conditionType5Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Conditiontype5commets</th>
+                                        <td>{{ condition.conditionType5Commets }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Conditiontype6</th>
+                                        <td>{{ condition.conditionType6 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Conditiontype6date</th>
+                                        <td>{% if condition.conditionType6Date %}{{ condition.conditionType6Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Conditiontype6comments</th>
+                                        <td>{{ condition.conditionType6Comments }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Conditiontype7</th>
+                                        <td>{{ condition.conditionType7 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Conditiontype7date</th>
+                                        <td>{% if condition.conditionType7Date %}{{ condition.conditionType7Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Conditiontype7comments</th>
+                                        <td>{{ condition.conditionType7Comments }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Patientid</th>
+                                        <td>{{ condition.patientId }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <ul>
+                                <li>
+                                    <a href="{{ path('conditions_index') }}">Back to the list</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('conditions_edit', { 'id': condition.id }) }}">Edit</a>
+                                </li>
+                                <li>
+                                    {{ form_start(delete_form) }}
+                                        <input type="submit" value="Delete">
+                                    {{ form_end(delete_form) }}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

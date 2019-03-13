@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Labradiology list
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            <table class="table table-striped table-bordered table-hover" id="dataTables">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Haemoglobin</th>
+                                        <th>Recticcount</th>
+                                        <th>Meancorpuscularvolume</th>
+                                        <th>Haematocrit</th>
+                                        <th>Plateletcount</th>
+                                        <th>Creatinine</th>
+                                        <th>Bilirubin</th>
+                                        <th>Transcranialdoppler</th>
+                                        <th>Echocardiogram</th>
+                                        <th>Echocomments</th>
+                                        <th>Othertest1</th>
+                                        <th>Othertest1comments</th>
+                                        <th>Othertest2</th>
+                                        <th>Othertest2comments</th>
+                                        <th>Othertest3</th>
+                                        <th>Othertest3comments</th>
+                                        <th>Haemoglobincomments</th>
+                                        <th>Recticcountcomments</th>
+                                        <th>Meancorpuscularvolumecomments</th>
+                                        <th>Haematocritcomments</th>
+                                        <th>Plateletcountcomments</th>
+                                        <th>Creatininecomments</th>
+                                        <th>Bilirubincommets</th>
+                                        <th>Transcranialdopplercomments</th>
+                                        <th>Triageid</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for labRadiology in labRadiologies %}
+                                    <tr>
+                                        <td><a href="{{ path('labradiology_show', { 'id': labRadiology.id }) }}">{{ labRadiology.id }}</a></td>
+                                        <td>{{ labRadiology.haemoglobin }}</td>
+                                        <td>{{ labRadiology.recticCount }}</td>
+                                        <td>{{ labRadiology.meanCorpuscularVolume }}</td>
+                                        <td>{{ labRadiology.haematocrit }}</td>
+                                        <td>{{ labRadiology.plateletCount }}</td>
+                                        <td>{{ labRadiology.creatinine }}</td>
+                                        <td>{{ labRadiology.bilirubin }}</td>
+                                        <td>{{ labRadiology.transcranialDoppler }}</td>
+                                        <td>{{ labRadiology.echocardiogram }}</td>
+                                        <td>{{ labRadiology.echoComments }}</td>
+                                        <td>{{ labRadiology.otherTest1 }}</td>
+                                        <td>{{ labRadiology.otherTest1Comments }}</td>
+                                        <td>{{ labRadiology.otherTest2 }}</td>
+                                        <td>{{ labRadiology.otherTest2Comments }}</td>
+                                        <td>{{ labRadiology.otherTest3 }}</td>
+                                        <td>{{ labRadiology.otherTest3Comments }}</td>
+                                        <td>{{ labRadiology.haemoglobinComments }}</td>
+                                        <td>{{ labRadiology.recticCountComments }}</td>
+                                        <td>{{ labRadiology.meanCorpuscularVolumeComments }}</td>
+                                        <td>{{ labRadiology.haematocritComments }}</td>
+                                        <td>{{ labRadiology.plateletCountComments }}</td>
+                                        <td>{{ labRadiology.creatinineComments }}</td>
+                                        <td>{{ labRadiology.bilirubinCommets }}</td>
+                                        <td>{{ labRadiology.transcranialDopplerComments }}</td>
+                                        <td>{{ labRadiology.triageId }}</td>
+                                        <td>
+                                            <ul>
+                                                <li>
+                                                    <a href="{{ path('labradiology_show', { 'id': labRadiology.id }) }}">show</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ path('labradiology_edit', { 'id': labRadiology.id }) }}">edit</a>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+                            <ul>
+                                <li>
+                                    <a href="{{ path('labradiology_new') }}">Create a new labRadiology</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+    $(document).ready(function() {
+        $('#dataTables').DataTable({
+            responsive: true
+        });
+    });
+    </script>
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Conditions list
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+
+                    <table class="table table-striped table-bordered table-hover" id="dataTables">
+
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Conditiontype1</th>
+                                <th>Conditiontype1date</th>
+                                <th>Conditiontype1comments</th>
+                                <th>Conditiontype2</th>
+                                <th>Conditiontype2date</th>
+                                <th>Conditiontype2comments</th>
+                                <th>Conditiontype3</th>
+                                <th>Conditiontype3date</th>
+                                <th>Conditiontype3comments</th>
+                                <th>Conditiontype4</th>
+                                <th>Conditiontype4date</th>
+                                <th>Conditiontype4comments</th>
+                                <th>Conditiontype5</th>
+                                <th>Conditiontype5date</th>
+                                <th>Conditiontype5commets</th>
+                                <th>Conditiontype6</th>
+                                <th>Conditiontype6date</th>
+                                <th>Conditiontype6comments</th>
+                                <th>Conditiontype7</th>
+                                <th>Conditiontype7date</th>
+                                <th>Conditiontype7comments</th>
+                                <th>Patientid</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for condition in conditions %}
+                            <tr>
+                                <td><a href="{{ path('conditions_show', { 'id': condition.id }) }}">{{ condition.id }}</a></td>
+                                <td>{{ condition.conditionType1 }}</td>
+                                <td>{% if condition.conditionType1Date %}{{ condition.conditionType1Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>{{ condition.conditionType1Comments }}</td>
+                                <td>{{ condition.conditionType2 }}</td>
+                                <td>{% if condition.conditionType2Date %}{{ condition.conditionType2Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>{{ condition.conditionType2Comments }}</td>
+                                <td>{{ condition.conditionType3 }}</td>
+                                <td>{% if condition.conditionType3Date %}{{ condition.conditionType3Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>{{ condition.conditionType3Comments }}</td>
+                                <td>{{ condition.conditionType4 }}</td>
+                                <td>{% if condition.conditionType4Date %}{{ condition.conditionType4Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>{{ condition.conditionType4Comments }}</td>
+                                <td>{{ condition.conditionType5 }}</td>
+                                <td>{% if condition.conditionType5Date %}{{ condition.conditionType5Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>{{ condition.conditionType5Commets }}</td>
+                                <td>{{ condition.conditionType6 }}</td>
+                                <td>{% if condition.conditionType6Date %}{{ condition.conditionType6Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>{{ condition.conditionType6Comments }}</td>
+                                <td>{{ condition.conditionType7 }}</td>
+                                <td>{% if condition.conditionType7Date %}{{ condition.conditionType7Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>{{ condition.conditionType7Comments }}</td>
+                                <td>{{ condition.patientId }}</td>
+                                <td>
+                                    <ul>
+                                        <li>
+                                            <a href="{{ path('conditions_show', { 'id': condition.id }) }}">show</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('conditions_edit', { 'id': condition.id }) }}">edit</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <ul>
+                        <li>
+                            <a href="{{ path('conditions_new') }}">Create a new condition</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+    $(document).ready(function() {
+        $('#dataTables').DataTable({
+            responsive: true
+        });
+    });
+    </script>
+{% endblock %}

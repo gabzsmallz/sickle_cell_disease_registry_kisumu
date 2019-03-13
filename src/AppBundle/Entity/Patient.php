@@ -102,10 +102,50 @@ class Patient
 	*	@ORM\OneToMany(targetEntity="Visits", mappedBy="patient_id")
 	*/
 	protected $visits;
+	/**
+	*	@ORM\OneToMany(targetEntity="Appointments", mappedBy="patient_id")
+	*/
+	protected $appointments;
+	/**
+	*	@ORM\OneToMany(targetEntity="Care", mappedBy="patient_id")
+	*/
+	protected $cares;
+	/**
+	*	@ORM\OneToMany(targetEntity="Conditions", mappedBy="patient_id")
+	*/
+	protected $conditions;
+	/**
+	*	@ORM\OneToMany(targetEntity="Episodes", mappedBy="patient_id")
+	*/
+	protected $episodes;
+	/**
+	*	@ORM\OneToMany(targetEntity="GeneticCounselling", mappedBy="patient_id")
+	*/
+	protected $consellings;
+	/**
+	*	@ORM\OneToMany(targetEntity="PatientStatus", mappedBy="patientId")
+	*/
+	protected $patientstatus;
+	/**
+	*	@ORM\OneToMany(targetEntity="Referrals", mappedBy="patientId")
+	*/
+	protected $referrals;
+	/**
+	*	@ORM\OneToMany(targetEntity="SurgicalHistory", mappedBy="patientId")
+	*/
+	protected $surgeries;
 
 	public function __construct()
 	{
 		$this->visits = new ArrayCollection();
+		$this->appointments = new ArrayCollection();
+		$this->cares = new ArrayCollection();
+		$this->episodes = new ArrayCollection();
+		$this->consellings = new ArrayCollection();
+		$this->patientstatus = new ArrayCollection();
+		$this->referrals = new ArrayCollection();
+		$this->conditions = new ArrayCollection();
+		$this->surgeries = new ArrayCollection();
 	}
 
 	public function getId()

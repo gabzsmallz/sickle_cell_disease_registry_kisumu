@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Care
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th>Id</th>
+                                        <td>{{ care.id }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Patientid</th>
+                                        <td>{{ care.patientId }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Treatment</th>
+                                        <td>{{ care.treatment }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Treamentstartdate</th>
+                                        <td>{% if care.treamentStartDate %}{{ care.treamentStartDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Treamentenddate</th>
+                                        <td>{% if care.treamentEndDate %}{{ care.treamentEndDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Treatmentcomments</th>
+                                        <td>{{ care.treatmentComments }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <ul>
+                                <li>
+                                    <a href="{{ path('care_index') }}">Back to the list</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('care_edit', { 'id': care.id }) }}">Edit</a>
+                                </li>
+                                <li>
+                                    {{ form_start(delete_form) }}
+                                        <input type="submit" value="Delete">
+                                    {{ form_end(delete_form) }}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

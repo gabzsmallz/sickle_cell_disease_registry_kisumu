@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Surgical history
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th>#</th>
+                                        <td>{{ surgicalHistory.id }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Surgeryconducted1</th>
+                                        <td>{{ surgicalHistory.surgeryConducted1 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Surgeryconducted1date</th>
+                                        <td>{% if surgicalHistory.surgeryConducted1Date %}{{ surgicalHistory.surgeryConducted1Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Surgeryconducted2</th>
+                                        <td>{{ surgicalHistory.surgeryConducted2 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Surgeryconducted2date</th>
+                                        <td>{% if surgicalHistory.surgeryConducted2Date %}{{ surgicalHistory.surgeryConducted2Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Surgeryconducted3</th>
+                                        <td>{{ surgicalHistory.surgeryConducted3 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Surgeryconducted3date</th>
+                                        <td>{% if surgicalHistory.surgeryConducted3Date %}{{ surgicalHistory.surgeryConducted3Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Surgeryconducted4</th>
+                                        <td>{{ surgicalHistory.surgeryConducted4 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Surgeryconducted4date</th>
+                                        <td>{% if surgicalHistory.surgeryConducted4Date %}{{ surgicalHistory.surgeryConducted4Date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Patientid</th>
+                                        <td>{{ surgicalHistory.patientId }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <ul>
+                                <li>
+                                    <a href="{{ path('surgicalhistory_index') }}">Back to the list</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('surgicalhistory_edit', { 'id': surgicalHistory.id }) }}">Edit</a>
+                                </li>
+                                <li>
+                                    {{ form_start(delete_form) }}
+                                        <input type="submit" value="Delete">
+                                    {{ form_end(delete_form) }}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
