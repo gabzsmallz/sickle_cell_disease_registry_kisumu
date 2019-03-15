@@ -54,6 +54,11 @@ class Visits
         $this->triages = new ArrayCollection();
     }
 
+    public function __tostring()
+    {
+        return $this->getTypeOfVisit().' : '.$this->getDateOfVisit();
+    }
+
     /**
      * Get id
      *

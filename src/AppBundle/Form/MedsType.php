@@ -5,6 +5,8 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class MedsType extends AbstractType
 {
@@ -13,7 +15,20 @@ class MedsType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('careId')->add('medsName')->add('medsDose')->add('medsComments')->add('medsDailyDose');
+        $builder
+        ->add('careId', EntityType::class,['class' => 'AppBundle:Care', 'choice_label' => 'Patient'])
+        ->add('medsName',null,[
+            'label' => 'Medication',
+        ])
+        ->add('medsDose',null,[
+            'label' => 'Dosage',
+        ])
+        ->add('medsComments',TextareaType::class,[
+            'label' => 'Medication remarks',
+        ])
+        ->add('medsDailyDose',null,[
+            'label' => 'Daily dosage',
+        ]);
     }/**
      * {@inheritdoc}
      */

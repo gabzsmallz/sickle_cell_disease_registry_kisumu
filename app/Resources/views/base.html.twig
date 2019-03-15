@@ -326,22 +326,139 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-table fa-fw"></i> Triage<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Second Level Item</a>
+                                    <a href="{{ path('triage_index') }}">View Triage record list</a>
                                 </li>
                                 <li>
-                                    <a href="#">Second Level Item</a>
+                                    <a href="{{ path('triage_new') }}">New Triage record</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-table fa-fw"></i> Lab/Radiology<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ path('labradiology_index') }}">View Lab/Radiology record list</a>
                                 </li>
                                 <li>
-                                    <a href="#">Third Level <span class="fa arrow"></span></a>
+                                    <a href="{{ path('labradiology_new') }}">New Lab/Radiology record</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-table fa-fw"></i> Appointments<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ path('appointments_index') }}">View Appointment record list</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('appointments_new') }}">New Appointment</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-table fa-fw"></i> Patient status<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ path('patientstatus_index') }}">View Patient status list</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('patientstatus_new') }}">New Patient status record</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-table fa-fw"></i> Treatment<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ path('care_index') }}">View Treatment list</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('care_new') }}">New Treatment record</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-table fa-fw"></i> Treatment(Medication)<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ path('meds_index') }}">View Treatment(Medication) list</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('meds_new') }}">New Treatment(Medication) record</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-table fa-fw"></i> Referrals<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ path('referrals_index') }}">View Referrals list</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('referrals_new') }}">New Referrals record</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-table fa-fw"></i> Genetic counselling<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ path('geneticcounselling_index') }}">View Genetic counselling list</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('geneticcounselling_new') }}">New Genetic counselling record</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-table fa-fw"></i> Sickle cell crisis<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ path('episodes_index') }}">View Sickle cell crisis list</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('episodes_new') }}">New Sickle cell crisis record</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-table fa-fw"></i> Surgical History<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ path('surgicalhistory_index') }}">View Surgical History</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('surgicalhistory_new') }}">New Surgical History record</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Reports<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Reports</a>
+                                </li>
+                                <li>
+                                    <a href="#">Patient reports <span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                         <li>
-                                            <a href="#">Third Level Item</a>
+                                            <a href="{{ path('patient_report') }}">Gender report</a>
                                         </li>
                                         <li>
-                                            <a href="#">Third Level Item</a>
+                                            <a href="{{ path('patient_report_type') }}">Sickle cell type report</a>
                                         </li>
                                         <li>
                                             <a href="#">Third Level Item</a>
@@ -938,6 +1055,8 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="{{ asset('dist/js/sb-admin-2.js') }}"></script>
+    <!-- CanvasJS -->
+    <script src="{{ asset('js/canvasjs.min.js') }}"></script>
     {% endblock %}
 
 </body>

@@ -5,6 +5,8 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class ReferralsType extends AbstractType
 {
@@ -13,7 +15,13 @@ class ReferralsType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('referralFrom')->add('referralDate')->add('referringDoctor')->add('patientId');
+        $builder
+        ->add('referralFrom',null,[
+            'label' => 'Referral from',
+        ])
+        ->add('referralDate',DateType::class,['widget' => 'single_text'])
+        ->add('referringDoctor')
+        ->add('patientId',EntityType::class,['class' => 'AppBundle:Patient', 'choice_label' => 'Patient']);
     }/**
      * {@inheritdoc}
      */

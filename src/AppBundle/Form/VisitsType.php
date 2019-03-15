@@ -16,7 +16,10 @@ class VisitsType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('dateOfVisit',DateType::class,['widget' => 'single_text'])->add('typeOfVisit',ChoiceType::class,['choices' => ['OPD' => 'OPD','IPD' => 'IPD']])->add('patientId',EntityType::class,['class' => 'AppBundle:Patient', 'choice_label' => 'name']);
+        $builder
+        ->add('dateOfVisit',DateType::class,['widget' => 'single_text'])
+        ->add('typeOfVisit',ChoiceType::class,['choices' => ['OPD' => 'OPD','IPD' => 'IPD']])
+        ->add('patientId',EntityType::class,['class' => 'AppBundle:Patient', 'choice_label' => 'Patient']);
     }/**
      * {@inheritdoc}
      */

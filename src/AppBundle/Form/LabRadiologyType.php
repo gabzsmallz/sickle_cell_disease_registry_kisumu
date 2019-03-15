@@ -13,7 +13,30 @@ class LabRadiologyType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('haemoglobin')->add('recticCount')->add('meanCorpuscularVolume')->add('haematocrit')->add('plateletCount')->add('creatinine')->add('bilirubin')->add('transcranialDoppler')->add('echocardiogram')->add('echoComments')->add('otherTest1')->add('otherTest1Comments')->add('otherTest2')->add('otherTest2Comments')->add('otherTest3')->add('otherTest3Comments')->add('haemoglobinComments')->add('recticCountComments')->add('meanCorpuscularVolumeComments')->add('haematocritComments')->add('plateletCountComments')->add('creatinineComments')->add('bilirubinCommets')->add('transcranialDopplerComments')->add('triageId');
+        $builder
+        ->add('haemoglobin')
+        ->add('recticCount',null,[
+            'label' => 'Rectic Count',
+        ])
+        ->add('meanCorpuscularVolume',null,[
+            'label' => 'Mean Corpuscular Volume',
+        ])
+        ->add('haematocrit')
+        ->add('plateletCount')->add('creatinine')->add('bilirubin')
+        ->add('transcranialDoppler',null,[
+            'label' => 'Transcranial Doppler',
+        ])
+        ->add('echocardiogram')
+        ->add('echoComments')
+        ->add('otherTest1')
+        ->add('otherTest1Comments')
+        ->add('otherTest2')
+        ->add('otherTest2Comments')
+        ->add('otherTest3')
+        ->add('otherTest3Comments')
+        ->add('haemoglobinComments')->add('recticCountComments')
+        ->add('meanCorpuscularVolumeComments')->add('haematocritComments')->add('plateletCountComments')->add('creatinineComments')->add('bilirubinCommets')->add('transcranialDopplerComments')
+        ->add('triageId', EntityType::class,['class' => 'AppBundle:Triage', 'choice_label' => 'Triage']);
     }/**
      * {@inheritdoc}
      */

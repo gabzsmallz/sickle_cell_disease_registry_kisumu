@@ -5,6 +5,9 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+
 
 class SurgicalHistoryType extends AbstractType
 {
@@ -13,7 +16,24 @@ class SurgicalHistoryType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('surgeryConducted1')->add('surgeryConducted1Date')->add('surgeryConducted2')->add('surgeryConducted2Date')->add('surgeryConducted3')->add('surgeryConducted3Date')->add('surgeryConducted4')->add('surgeryConducted4Date')->add('patientId');
+        $builder
+        ->add('surgeryConducted1',null,[
+            'label' => 'Surgery Conducted (1)',
+        ])
+        ->add('surgeryConducted1Date',DateType::class,['widget' => 'single_text'])
+        ->add('surgeryConducted2',null,[
+            'label' => 'Surgery Conducted (2)',
+        ])
+        ->add('surgeryConducted2Date',DateType::class,['widget' => 'single_text'])
+        ->add('surgeryConducted3',null,[
+            'label' => 'Surgery Conducted (3)',
+        ])
+        ->add('surgeryConducted3Date',DateType::class,['widget' => 'single_text'])
+        ->add('surgeryConducted4',null,[
+            'label' => 'Surgery Conducted (4)',
+        ])
+        ->add('surgeryConducted4Date',DateType::class,['widget' => 'single_text'])
+        ->add('patientId',EntityType::class,['class' => 'AppBundle:Patient', 'choice_label' => 'Patient']);
     }/**
      * {@inheritdoc}
      */

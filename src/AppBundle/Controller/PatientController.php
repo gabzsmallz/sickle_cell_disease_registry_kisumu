@@ -6,6 +6,7 @@ use AppBundle\Entity\Patient;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * Patient controller.
@@ -132,5 +133,30 @@ class PatientController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+    /**
+    *   @Route("/getpatients", name="patient_lists")
+    */
+
+    public function getPatientsAction()
+    {
+        return $this->render('lucky/number.html.twig',[
+            'number' => $number,
+        ]);
+        $patients=$this->getDoctrine()
+            ->getRepository(Patient::class)
+            ->createQueryBuilder('p')
+            ->where('p.is_active = :status')
+            ->setParameter('status', 1)
+            ->orderBy('p.name', 'ASC')
+            ->getQuery()
+            ->getResult();
+        $view=$this->view($patients, 200)
+            ->setTemplate("AppBundle:Patient:getPatients.html.twig")
+            //set variable of object wrap data types other than associative arrays in an associative array
+            ->setTemplateVar('patients');
+
+            return $this->handleView($view);
     }
 }

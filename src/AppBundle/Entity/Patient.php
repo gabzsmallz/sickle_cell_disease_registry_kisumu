@@ -148,6 +148,15 @@ class Patient
 		$this->surgeries = new ArrayCollection();
 	}
 
+	public function getPatient()
+	{
+		return $this->getName().' : '.$this->getRegistrationNo();
+	}
+	public function __toString()
+	{
+		return $this->getName().' : '.$this->getRegistrationNo();
+	}
+
 	public function getId()
 	{
 		return $this->id;
